@@ -7,6 +7,8 @@ Alternatively, to run the code in your browser, click the Binder link below.
 
 RStudio: [![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/ActuariesInstitute/YAP-YDAWG-R-Workshop/master?urlpath=rstudio)
 
+There may be a long loading time of up to an hour.
+
 With contributions from:
 * Jonathan Shen
 * Tim Lam
