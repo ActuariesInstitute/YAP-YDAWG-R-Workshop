@@ -1,0 +1,85 @@
+---
+title: "Advanced Visualisations II: Dashboards and interactivity"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+  runtime: shiny
+---
+
+```{r setup, include=FALSE}
+# First, install flexdashboard using install.packages("flexdashboard")
+# Further details on the package can be found in https://rmarkdown.rstudio.com/flexdashboard/
+# Then press the Run Document button on the top left of this panel.
+library(flexdashboard)
+library(ggplot2)
+deaths <- read.csv("bitre_ardd_fatalities_dec_2018.csv")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Making a dashboard
+
+It is quite common for actuaries to produce reports in a dashboard, in Excel or Tableau, for presenting information in a visual way. This is often extended with slicers or other interactivity to enable a drill down of the report to specific segments. 
+
+For many simple applications, Excel or Tableau is probably the best approach. It is quick and easy to develop dashboards compared to R.
+
+However, at a certain level of complexity, R can become a better solution. With R we can make a dashboard using Flexdashboard, and then add interactivity using Shiny.
+
+R dashboards allow full availability of machine learning models developed in R, better traceability and version control, and reusable logic - such as creating a function to reuse and make multiple similar plots in the document with the same official company colour scheme and font. 
+
+### Packages
+
+Flexdashboard (https://rmarkdown.rstudio.com/flexdashboard/) offers a template for creating dashboards. Markdown's heading levels take on greater meaning, so it is suggested to read through the documentation.
+
+Interactivity similar to Excel slicers or VBA-enabled dropdowns can be added to R Markdown documents using Shiny. To do so, add ‘runtime: shiny’ to the header section of the R Markdown document. 
+
+It is possible to produce static dashboards using only Flexdashboard, which can be distributed over email, and conversely it is possible to produce interactive RMarkdown documents or full websites using Shiny without flexdashboard.
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Interactive Dashboard {data-height=200}
+
+Shiny adds several new concepts:
+
+```{r}
+selectInput("State", 
+            label = "State:",
+            choices = c("ACT", "NSW", "NT", "VIC", "QLD", "SA", "TAS", "WA"), 
+            selected = "NSW")
+  
+```
+
+### Reactive {data-height=400}
+To make a variable recalculate based on changes in input, store it in a “reactive({})”. Don't forget the curly braces as well as the parenthesis!
+
+Formulas inside a reactive will be recalculated when the inputs change, similar to formulas in Excel.
+
+```{r}
+deaths_for_state <- reactive({
+  deaths[deaths$State==input$State,]
+})
+```
+
+Note that reactives are functions. So instead of referencing a dataframe filtered by state as "deaths_for_state", it would be "deaths_for_state()".
+
+```{r}
+renderTable(head(deaths_for_state(), 1)) # See below.
+```
+
+### Render {data-height=600}
+To then display reactive variables in tables and plots, use the render...({}) functions.
+
+For example, above was renderTable, and here is renderPlot:
+
+```{r}
+renderPlot({
+  hist(deaths_for_state()$Age, 
+       breaks = c(seq(-10, 110, 10)))
+})
+```
+
+Once again, the dataframes or plots need to be encapsulated in curly braces as well as parentheses.
