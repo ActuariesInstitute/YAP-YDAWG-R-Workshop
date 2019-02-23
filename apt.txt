@@ -2,3 +2,9 @@ r-cran-ggplot2
 r-cran-caret
 r-cran-reshape2
 libudunits2-dev
+libgdal1-dev
+gdal-bin
+libproj-dev
+proj-data
+proj-bin
+libgeos-dev
