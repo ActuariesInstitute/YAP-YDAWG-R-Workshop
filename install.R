@@ -1,1 +1,1 @@
-install.packages(c('randomForest', 'DALEX', 'xgboost', 'flexdashboard'))
+install.packages(c('randomForest', 'DALEX', 'flexdashboard'))
