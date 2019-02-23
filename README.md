@@ -15,7 +15,6 @@ With contributions from:
 *	Josh Jaroudy
 * Cindy Vuong
 * Arjun Sathasivam
-* Michael Storozhev
 * Heloísa Bete
 * Michelle Ng
 * Jacky Poon
