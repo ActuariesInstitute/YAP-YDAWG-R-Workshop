@@ -12,6 +12,7 @@ Try clicking "Knit" in the top left of this panel to view this as an HTML or Wor
 ## Introduction
 
 Quite often in a traditional actuarial analysis flow, you may have for example:
+
 1. Data transformations in SAS
 2. Analysis in Excel
 3. Summary tables and plots in Excel
@@ -19,6 +20,7 @@ Quite often in a traditional actuarial analysis flow, you may have for example:
 This often would involve a number of manual update steps.
 
 In this YAP R course, we have had:
+
 1. Data transformation using dataframes in R,
 2. Analysis in R,
 3. Summary data frames and plots in R
@@ -44,9 +46,10 @@ In RStudio, try clicking the "Play" button in the top right hand corner of the g
 This approach of combining modelling code and commentary is called literate programming.
 
 With this approach, there are several key advantages:
+
 *	All in R and RStudio – easier to manage single tool
 *	Encourages better documentation
-*	Plain text file format – easier for version control tools such as Git. 
+*	Plain text file format – easier for version control tools such as Git.
 
 It is also worthwhile to note several limitations of this approach:
 
