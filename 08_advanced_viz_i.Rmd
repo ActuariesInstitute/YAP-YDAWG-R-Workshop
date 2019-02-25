@@ -1,0 +1,59 @@
+---
+title: "Advanced Visualisation I: Introduction to R Markdown and Literate Programming"
+author: "Young Data Analytics Working Group"
+date: "09/02/2019"
+output: html_document
+---
+
+This section will take you through to creating technical documents in R as a lead in to building interactive R dashboards in the next section.
+
+Try clicking "Knit" in the top left of this panel to view this as an HTML or Word Document.
+
+## Introduction
+
+Quite often in a traditional actuarial analysis flow, you may have for example:
+
+1. Data transformations in SAS
+2. Analysis in Excel
+3. Summary tables and plots in Excel
+4. A report with results and documentation of the process in Word or Powerpoint
+This often would involve a number of manual update steps.
+
+In this YAP R course, we have had:
+
+1. Data transformation using dataframes in R,
+2. Analysis in R,
+3. Summary data frames and plots in R
+
+This section will describe how to 4. Create reports snd presentations in R as well, enabling a fully code-based, automated reporting workflow.
+
+## R Markdown
+Markdown is a text markup language that is simple to learn. Learn about this R variant more at <http://rmarkdown.rstudio.com>.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+What R Markdown allows you to do would be to incorporate commentary and documentation interspersed with R code:
+
+```{r Age}
+deaths <- read.csv("bitre_ardd_fatalities_dec_2018.csv")
+hist(deaths$Age, breaks = c(seq(-10, 110, 10)))
+```
+
+In RStudio, try clicking the "Play" button in the top right hand corner of the grey section of code above or the "Run" button at the top right of the panel.
+
+This approach of combining modelling code and commentary is called literate programming.
+
+With this approach, there are several key advantages:
+
+*	All in R and RStudio – easier to manage single tool
+*	Encourages better documentation
+*	Plain text file format – easier for version control tools such as Git.
+
+It is also worthwhile to note several limitations of this approach:
+
+*	Report structure is practically constrained to follow the code - typically data, exploration, models and then results. Producing an executive summary tables and graphs out of order requires workarounds.
+*	There is a complexity limit for which a single file is practical. For larger projects, it would be typically be best practice to split into multiple R files.
+
+This makes the format quite suited for technical actuarial documents. Conversely, the dashboard format in the next section may be a better format for presenting to business stakeholders.
