@@ -541,6 +541,55 @@ summary(lm_model)
 par(mfrow=c(2,2))
 plot(lm_model)
 
+# Try fitting a randomForest model before scrolling down for the answer
+
+rf_model <- NULL  # your code here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Answer
 rf_model <- randomForest(claim_severity ~ State + Dayweek + Crash.Type + Gender + Age + Speed.Limit + Road.User + Bus..Involvement , data = deaths_m, ntree = 50)
 summary(rf_model)
 par(mfrow=c(1,1))
