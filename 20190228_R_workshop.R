@@ -538,10 +538,12 @@ lm_model <- lm(claim_severity ~ State + Dayweek + Crash.Type + Gender + Age + Sp
 summary(lm_model)
 
 # Residuals vs fitted curve not looking random; QQ-Plot is curve suggesting a non-linear graph would be better;
+par(mfrow=c(2,2))
 plot(lm_model)
 
 rf_model <- randomForest(claim_severity ~ State + Dayweek + Crash.Type + Gender + Age + Speed.Limit + Road.User + Bus..Involvement , data = deaths_m, ntree = 50)
 summary(rf_model)
+par(mfrow=c(1,1))
 plot(rf_model)
 
 
