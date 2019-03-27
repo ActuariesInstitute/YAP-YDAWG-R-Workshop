@@ -15,7 +15,7 @@ There may be a long loading time of up to an hour.
 
 Originally this course suggested a free introductory course as a pre-requisite, but that course became non-free.
 
-Alternatives include introductions by [Monash University](https://monashbioinformaticsplatform.github.io/r-intro/) or [Microsoft](https://www.edx.org/course/introduction-to-r-for-data-science-2)
+Alternatives include introductions by [Monash University](https://monashbioinformaticsplatform.github.io/r-intro/) or [Microsoft](https://www.edx.org/course/introduction-to-r-for-data-science-2).
 
 ## 3. Download the materials
 
